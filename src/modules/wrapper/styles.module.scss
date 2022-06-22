@@ -1,0 +1,10 @@
+.container {
+    width: 100%;
+    max-width: 820px;
+
+    @media screen and (min-width: 800px) {
+        &.hasShadow {
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        }
+    }
+}

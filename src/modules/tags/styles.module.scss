@@ -1,0 +1,68 @@
+@import '../../themes/mixins';
+
+.container {
+    display: flex;
+    justify-content: center;
+
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 10px;
+        background: #fff;
+    }
+    
+    .title {
+        font-weight: 500;
+        font-size: 22px;
+        margin: 0;
+        color: #166987;
+        margin: 0 0 30px;
+    }
+
+    .items{
+        display: flex;
+        flex-wrap: wrap;
+        margin: -6px;
+
+        .item{
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            color: #ffffff;
+            background: #166987;
+            border-radius: 4px;
+            padding: 14px 8px 12px;
+            margin: 6px;
+            width: calc(50% - 12px);
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+
+    @media screen and (min-width: 800px) {
+        .wrapper{
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        .wrapper {
+            padding-left: 20px;
+            padding-right: 20px;
+
+            > h3 {
+                font-size: 26px;
+            }
+
+            .items{
+                .item{
+                    width: calc(25% - 12px);
+                }
+            }
+        }
+    }
+}

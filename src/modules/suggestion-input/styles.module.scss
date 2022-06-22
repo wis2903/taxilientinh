@@ -1,0 +1,32 @@
+.container{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+
+    .input{
+        width: 100%;
+    }
+
+    input{
+        width: 100%;
+        padding-right: 20px;
+    }
+
+    .loader{
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        right: 12px;
+        display: none;
+    }
+
+    .dropdown{
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        width: 100%;
+        z-index: 10;
+    }
+}

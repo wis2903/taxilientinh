@@ -1,0 +1,118 @@
+.container {
+    background: #fbf9f2;
+    position: relative;
+
+    .background {
+        display: none;
+    }
+
+    .wrapper {
+        width: 100%;
+        min-height: 100vh;
+        margin: auto;
+        position: relative;
+        z-index: 1;
+
+        .bookingContainer {
+            .introduction {
+                display: none;
+            }
+        }
+
+        .servicesReCall {
+            padding-top: 20px;
+
+            > h3 {
+                font-size: 22px;
+                line-height: 32px;
+            }
+        }
+
+        .pricingReCall {
+            padding-top: 20px;
+
+            > h3 {
+                font-size: 22px;
+                line-height: 32px;
+            }
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        background: #f6f7f8;
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 150%;
+            z-index: 0;
+            display: block;
+            opacity: 0.05;
+            filter: grayscale(1);
+        }
+
+        .wrapper {
+            .bookingContainer {
+                background: #ffffff;
+                position: relative;
+                min-height: 590px;
+                margin: 20px auto 20px;
+
+                .introduction {
+                    width: 50%;
+                    padding: 60px 20px 0 20px;
+                    display: block;
+                    position: relative;
+                    overflow: hidden;
+
+                    .decor {
+                        position: absolute;
+                        filter: grayscale(1);
+                        z-index: 0;
+                        height: 80%;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        opacity: 0.05;
+                    }
+
+                    > h3 {
+                        font-size: 26px;
+                        color: #166987;
+                        font-weight: 500;
+                        margin: 0 0 30px;
+                        position: relative;
+                        z-index: 1;
+                    }
+
+                    .item {
+                        font-size: 18px;
+                        font-weight: 500;
+                        line-height: 28px;
+                        margin: 12px 0 0;
+                        position: relative;
+                        padding: 0 0 0 24px;
+                        color: #333333;
+                        position: relative;
+                        z-index: 1;
+
+                        > span {
+                            color: #166987;
+                        }
+
+                        > span:nth-child(1) {
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 50%;
+                            background: #166987;
+                            position: absolute;
+                            left: 0;
+                            top: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

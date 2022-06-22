@@ -1,0 +1,157 @@
+.container {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to top, #2c6172, #176987);
+
+    .wrapper {
+        padding: 50px 10px 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+
+        .name {
+            font-size: 26px;
+            font-weight: 600;
+            margin: 0 12px 0 0;
+            letter-spacing: -1px;
+
+            > span {
+                &:nth-child(2) {
+                    color: #ffffff;
+                }
+            }
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 0 10px;
+            width: 100%;
+        }
+
+        .slogan {
+            font-size: 15px;
+            margin: 0;
+            font-weight: 400;
+            text-align: center;
+            width: 100%;
+        }
+
+        .phones{
+            margin: 0 0 20px;
+            font-size: 15px;
+
+            div:not(:first-child){
+                margin: 20px 0 0;
+            }
+
+            a{
+                color: #ffffff;
+            }
+        }
+
+        .phone {
+            font-size: 16px;
+            font-weight: 500;
+            margin: 5px 0 0;
+            text-align: center;
+
+            a {
+                color: #fff;
+                font-weight: 500;
+                display: inline-flex;
+                justify-content: flex-end;
+                align-items: center;
+            }
+
+            img {
+                width: 18px;
+                transform: translateY(-3px);
+                display: block;
+                margin: 0 4px 0 0;
+                opacity: 0.95;
+            }
+        }
+
+        .menu {
+            margin: 0 0 16px;
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            button {
+                text-decoration: underline;
+                background: 0;
+            }
+        }
+
+        .bookingContainer {
+            width: 100%;
+            background: #fff;
+            color: #166987;
+            border-radius: 6px;
+            margin: 20px 0 0;
+
+            > div {
+                padding: 24px 10px;
+            }
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        .wrapper {
+            position: relative;
+            align-items: flex-start;
+            justify-content: flex-start;
+            min-height: 490px;
+            padding: 100px 0 0;
+
+            .logo {
+                justify-content: flex-start;
+            }
+
+            .name{
+                font-size: 32px;
+            }
+
+            .phone{
+                font-size: 18px;
+            }
+
+            .phones{
+                font-size: 18px;
+            }
+
+            .menu {
+                flex-direction: column;
+                align-items: flex-start;
+
+                button {
+                    padding: 12px 0 8px;
+                    font-size: 18px;
+                }
+            }
+
+            .slogan {
+                text-align: left;
+                font-size: 17px;
+            }
+
+            .bookingContainer {
+                > div {
+                    padding: 16px;
+
+                    > div:nth-child(1),
+                    > div:nth-child(2) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

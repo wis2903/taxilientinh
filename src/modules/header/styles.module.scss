@@ -1,0 +1,94 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+
+    .wrapper {
+        padding: 24px 12px;
+        background: #ffffff;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .name {
+            font-size: 29px;
+            font-weight: 600;
+
+            > span {
+                letter-spacing: -1px;
+
+                &:nth-child(2) {
+                    color: #166987;
+                }
+            }
+        }
+
+        .slogan {
+            font-size: 14px;
+            margin: 6px 0 0;
+            font-weight: 500;
+
+            .phone {
+                color: #166987;
+                margin: 2px 0 0;
+                display: inline-block;
+                outline: 0;
+                text-decoration: none;
+            }
+        }
+
+        > a {
+            padding: 12px 10px 10px;
+            transform: translateY(-7px);
+            font-size: 16px;
+            border: 0;
+            background: #166987;
+            font-weight: 500;
+            color: #fff;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+    }
+
+    @media screen and (min-width: 800px) {
+        box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 20px;
+    }
+
+    @media screen and (min-width: 768px) {
+        .wrapper{
+            padding: 20px 0 12px;
+            position: relative;
+
+            .logo{
+                .name{
+                    letter-spacing: 0;
+                    font-size: 34px;
+                }
+
+                .slogan{
+                    font-size: 18px;
+                }
+
+                .phone{
+                    font-size: 22px;
+                    position: absolute;
+                    right: 150px;
+                    top: 28px;
+                    font-weight: 600;
+                }
+            }
+
+            > button{
+                font-size: 18px;
+                padding: 10px 32px 8px;
+            }
+        }
+    }
+}
