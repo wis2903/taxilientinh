@@ -22,30 +22,51 @@
         width: 100%;
         border: 1px solid #166987;
         border-radius: 6px;
-        box-shadow: 0 0 7px #c7e1e9;
+        // box-shadow: 0 0 7px #c7e1e9;
         background: #fff;
+
+        &.tableHead{
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        &.tableCat{
+            border-radius: 0;
+            border-top: 0;
+            border-bottom: 0;
+            padding: 16px 0;
+            font-weight: 600;
+            font-size: 18px;
+            background: #c7e1e9;
+        }
+
+        &.tableList{
+            border-top: 0;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        &.tableMid{
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
     }
 
     .col{
         display: inline-flex;
         flex-direction: column;
-        width: 33.33%;
+        width: 36%;
 
         &:nth-child(1){
             width: 50%;
         }
-
-        &:nth-child(2) {
-            width: 15%;
-
-            .cell{
-                padding: 12px 6px;
-                font-size: 14px;
-            }
-        }
         
+        &:nth-child(2){
+            width: 25%;
+        }
+
         &:nth-child(3){
-            width: 35%;
+            width: 25%;
 
             .cell{
                 border-right: 0;
@@ -60,7 +81,7 @@
             text-align: right;
             border: 1px solid #166987;
             border-width: 1px 1px 0 0;
-            font-size: 15px;
+            font-size: 14px;
             line-height: 26px;
             display: inline-flex;
             justify-content: flex-end;
@@ -69,9 +90,9 @@
         }
 
         .headCell{
-            height: 100px;
+            height: 60px;
             font-weight: 500;
-            font-size: 17px;
+            font-size: 17px !important;
             border-width: 0 1px 0 0;
             padding: 10px 12px 10px 10px;
             color: #222222;

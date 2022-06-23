@@ -37,7 +37,7 @@ const Footer = ({
 
                 <div className={styles.phones}>
                     <div>Hotline: <a href={`tel:${ENVS.phone.value}`}>{ENVS.phone.label}</a></div>
-                    <div>CSKH: <a href="tel:+84349665665">0349.665.665</a></div>
+                    <div>CSKH: <a href="tel:+84931134670">0931.134.670</a></div>
                 </div>
 
                 <div className={styles.slogan}>

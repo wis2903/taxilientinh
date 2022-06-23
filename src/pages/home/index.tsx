@@ -13,14 +13,12 @@ import Services from '../../modules/services';
 import News from '../../modules/news';
 import Footer from '../../modules/footer';
 import ReCall from '../../modules/recall';
-import Carousel from '../../modules/carousel';
 import Cars from '../../modules/cars';
 import Call from '../../modules/call';
 import Tours from '../../modules/tours';
 import Feedbacks from '../../modules/feedbacks';
 import Menu from '../../modules/menu';
 import Wrapper from '../../modules/wrapper';
-import Tags from '../../modules/tags';
 
 // styles
 import styles from './styles.module.scss';
@@ -107,7 +105,6 @@ const Home = (): JSX.Element => {
                     onClickPricing={handleScrollToPricing}
                 />
                 <Preview />
-                <Carousel autoplay />
                 <Wrapper hasShadow className={styles.bookingContainer} containerRef={bookingRef}>
                     <div className={styles.introduction}>
                         <img className={styles.decor} src={XeImage} alt="" />
@@ -161,12 +158,13 @@ const Home = (): JSX.Element => {
                     </div>
                     <Booking />
                 </Wrapper>
-                <Tags />
-                <ReCall
+                {/* <Carousel autoplay /> */}
+                {/* <Tags /> */}
+                {/* <ReCall
                     onClick={handleScrollToBooking}
                     title="Bắt đầu đặt xe để trải nghiệm dịch vụ tuyệt vời"
                     buttonLabel="Đặt xe đi ngay"
-                />
+                /> */}
                 <Cars containerRef={carsRef} />
                 <ReCall
                     onClick={handleScrollToBooking}
