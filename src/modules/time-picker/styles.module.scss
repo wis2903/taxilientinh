@@ -1,0 +1,39 @@
+.container {
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    width: 100%;
+    font-size: 16px;
+    padding: 14px 12px 8px;
+    border-radius: 6px;
+    position: relative;
+
+    .selection {
+        position: absolute;
+        bottom: 4px;
+        left: 70px;
+        width: 210px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        z-index: 10;
+
+        .dropdown {
+            width: 110px;
+            min-width: 0;
+
+            &:first-child{
+                width: 100px;
+            }
+
+            > button {
+                height: 30px;
+                border-color: rgba($color: #ffffff, $alpha: 0.4);
+            }
+        }
+
+        > span{
+            margin: 0 4px;
+        }
+    }
+}

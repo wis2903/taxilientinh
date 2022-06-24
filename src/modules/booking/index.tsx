@@ -9,6 +9,7 @@ import LocationIcon from '../../resources/images/place.png';
 import PhoneIcon from '../../resources/images/phone-call.png';
 import PhoneIconBlue from '../../resources/images/phone-call-blue.png';
 import CalendarIcon from '../../resources/images/calendar.png';
+import ClockIcon from '../../resources/images/clock.png';
 import XeImage from '../../resources/images/xe.png';
 
 // modules
@@ -22,6 +23,7 @@ import Modal from '../modal';
 import SuggestionInput from '../suggestion-input';
 import DatePicker from '../date-picker';
 import { isMobile } from 'react-device-detect';
+import TimePicker from '../time-picker';
 
 // interfaces
 interface BookingProps {
@@ -36,6 +38,7 @@ interface FormState {
     to?: FormInput,
     phone?: FormInput,
     time?: FormInput,
+    hm?: FormInput,
     type?: FormInput,
 }
 
@@ -47,6 +50,9 @@ const Booking = ({ containerRef }: BookingProps): JSX.Element => {
         to: {
             value: params.get('to') || '',
         },
+        hm: {
+            value: `${moment().format('HH')}:${moment().format('mm')}`
+        }
     });
     const [isLoading, setIsLoading] = React.useState<boolean>(false);
     const [isShowForm, setIsShowForm] = React.useState<boolean>(true);
@@ -123,7 +129,7 @@ const Booking = ({ containerRef }: BookingProps): JSX.Element => {
                     phone: formData.phone?.value,
                     address_from: formData.from?.value,
                     address_to: formData.to?.value,
-                    time: formData.time?.value,
+                    time: `${formData.time?.value}, ${formData.hm?.value}`,
                     type: `${formData.type?.value} chỗ`,
                 },
                 'user_C8eRBRUg0nugZvQHmtpwh'
@@ -242,6 +248,19 @@ const Booking = ({ containerRef }: BookingProps): JSX.Element => {
                                         }} />
                                         <img src={CalendarIcon} alt="Calendar" />
                                     </div>
+
+                                    <div className={`${styles.inputGroup} ${formData.hm?.error ? styles.hasError : ''}`}>
+                                        <TimePicker title="Giờ đi" onChange={(val): void => {
+                                            setFormData((data) => ({
+                                                ...data,
+                                                hm: {
+                                                    value: val,
+                                                    error: ''
+                                                }
+                                            }));
+                                        }} />
+                                        <img src={ClockIcon} alt="Clock" />
+                                    </div>
                                 </div>
                                 :
                                 <div className={styles.formPlaceholder} />
@@ -312,9 +331,14 @@ const Booking = ({ containerRef }: BookingProps): JSX.Element => {
                             setFormData(data => ({
                                 ...data,
                                 from: {},
-                                to: {},
+                                to: {
+                                    value: params.get('to') || '',
+                                },
                                 phone: {},
                                 time: {},
+                                hm: {
+                                    value: `${moment().format('HH')}:${moment().format('mm')}`
+                                }
                             }));
                             setIsShowForm(false);
                             setTimeout(() => {
@@ -328,6 +352,7 @@ const Booking = ({ containerRef }: BookingProps): JSX.Element => {
                             <div>Điểm đến: <span>{formData.to?.value}</span></div>
                             <div>Số điện thoại: <span>{formData.phone?.value}</span></div>
                             <div>Ngày đi: <span>{formData.time?.value}</span></div>
+                            <div>Giờ đi: <span>{formData.hm?.value}</span></div>
                             <div>Loại xe: <span>{formData.type?.value} chỗ</span></div>
                         </div>
                     </Modal>
