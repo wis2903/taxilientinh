@@ -11,9 +11,16 @@
         justify-content: center;
         color: #ffffff;
 
+        > div:first-child {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
         .name {
             font-size: 26px;
-            font-weight: 600;
+            font-weight: 400;
             margin: 0 12px 0 0;
             letter-spacing: -1px;
 
@@ -40,15 +47,15 @@
             width: 100%;
         }
 
-        .phones{
+        .phones {
             margin: 0 0 20px;
             font-size: 15px;
 
-            div:not(:first-child){
+            div:not(:first-child) {
                 margin: 20px 0 0;
             }
 
-            a{
+            a {
                 color: #ffffff;
             }
         }
@@ -108,22 +115,29 @@
             position: relative;
             align-items: flex-start;
             justify-content: flex-start;
-            min-height: 550px;
-            padding: 100px 0 0;
+            flex-direction: row;
+            padding: 60px 0 40px;
+
+            > div:first-child {
+                width: 100%;
+                padding-top: 30px;
+                justify-content: flex-start;
+                align-items: flex-start;
+            }
 
             .logo {
                 justify-content: flex-start;
             }
 
-            .name{
+            .name {
                 font-size: 32px;
             }
 
-            .phone{
+            .phone {
                 font-size: 18px;
             }
 
-            .phones{
+            .phones {
                 font-size: 18px;
             }
 
@@ -143,8 +157,11 @@
             }
 
             .bookingContainer {
-                > div {
+                margin-top: 0;
+
+                > div:first-child {
                     padding: 16px;
+                    width: 100%;
 
                     > div:nth-child(1),
                     > div:nth-child(2) {

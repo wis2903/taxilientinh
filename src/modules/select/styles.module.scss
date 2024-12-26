@@ -1,4 +1,4 @@
-.container{
+.container {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -6,18 +6,22 @@
     position: relative;
     width: 100%;
 
-    .trigger{
+    .trigger {
         width: 100%;
-        padding-right: 20px;
-        height: 40px;
+        height: 44px;
         font-size: 16px;
-        padding: 2px 12px 0;
+        padding: 2px 12px 0 12px;
         text-align: left;
         position: relative;
         border: 1px solid #fff;
         font-weight: 400;
+        background-color: transparent;
 
-        &::after{
+        &.hasValue {
+            padding-top: 6px;
+        }
+
+        &::after {
             content: '';
             width: 10px;
             height: 6px;
@@ -30,12 +34,25 @@
         }
     }
 
-    .dropdown{
+    .dropdown {
         position: absolute;
         bottom: -1px;
         left: 0;
         width: 100%;
         z-index: 10;
         background: #ffffff;
+    }
+
+    .label {
+        position: absolute;
+        color: #ffffff;
+        display: inline-block;
+        z-index: 1;
+        padding: 2px 4px;
+        transition: top linear 0.15s, font-size linear 0.15s;
+        background: #176987;
+        font-size: 12px;
+        top: -10px;
+        left: 10px;
     }
 }

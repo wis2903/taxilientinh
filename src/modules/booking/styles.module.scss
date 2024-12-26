@@ -1,9 +1,9 @@
-@keyframes slideDown{
-    0%{
+@keyframes slideDown {
+    0% {
         height: 0;
     }
 
-    100%{
+    100% {
         height: 20px;
     }
 }
@@ -29,7 +29,7 @@
             border: 1px solid #166987;
             color: #166987;
             padding: 10px 10px 6px;
-            font-weight: 600;
+            font-weight: 500;
             margin: 0 0 4px 10px;
             box-shadow: 0 0 7px #c7e1e9;
             text-decoration: none;
@@ -40,11 +40,11 @@
             align-items: center;
             width: 100%;
 
-            img{
+            img {
                 width: 20px;
                 transform: translateY(-2px);
                 margin: 0 8px 0 0;
-                opacity: .95;
+                opacity: 0.95;
             }
         }
     }
@@ -60,7 +60,7 @@
         &::before,
         &::after {
             position: absolute;
-            content: "";
+            content: '';
             width: 12px;
             height: 1px;
             background: #666666;
@@ -91,7 +91,7 @@
                 z-index: 1;
             }
 
-            .bg{
+            .bg {
                 position: absolute;
                 z-index: 0;
                 top: 0;
@@ -115,8 +115,20 @@
         }
     }
 
-    .formPlaceholder{
-        min-height: 240px;
+    .formPlaceholder {
+        min-height: 500px;
+    }
+
+    .inputGroupFlex {
+        margin: 25px 0 0;
+        gap: 8px;
+        display: flex;
+        align-items: center;
+
+        > :first-child {
+            width: calc(100% - 182px - 8px);
+            min-width: 100px;
+        }
     }
 
     .inputGroup {
@@ -139,7 +151,7 @@
             z-index: 0;
         }
 
-        .error{
+        .error {
             margin: 0;
             font-size: 13px;
             color: #dba510;
@@ -149,12 +161,33 @@
             display: flex;
             align-items: flex-end;
             justify-content: flex-start;
-            animation: slideDown linear .15s;
+            animation: slideDown linear 0.15s;
         }
 
-        &:nth-child(2), &:nth-child(3){
-            img{
-                height: 20px;
+        // &:nth-child(2),
+        // &:nth-child(3) {
+        //     img {
+        //         height: 20px;
+        //     }
+        // }
+
+        &.trip {
+            display: flex;
+            gap: 12px;
+
+            button {
+                width: 100%;
+                border: 1px solid #d5d5d5;
+                background: transparent;
+                color: #d5d5d5;
+                border-radius: 24px;
+
+                &.active {
+                    background-color: white;
+                    color: #166987;
+                    border-color: white;
+                    box-shadow: 0 2px 8px #88b2bf;
+                }
             }
         }
     }
@@ -168,7 +201,6 @@
 
     @media screen and (min-width: 768px) {
         width: 48%;
-        position: absolute;
         right: 16px;
         top: 16px;
         border-radius: 8px;
@@ -176,28 +208,28 @@
         background: #f5f5f5;
         border: 1px solid #eeeeee;
 
-        .call{
+        .call {
             font-size: 22px;
 
-            a{
+            a {
                 font-size: 18px;
             }
         }
     }
 }
 
-.comingSoon{
+.comingSoon {
     font-size: 16px;
     line-height: 24px;
 }
 
-.summary{
+.summary {
     margin: 16px 0 0;
     font-size: 16px;
     line-height: 24px;
 
-    > div{
-        > span{
+    > div {
+        > span {
             font-weight: 500;
         }
     }

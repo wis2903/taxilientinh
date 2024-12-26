@@ -113,7 +113,7 @@ const Home = (): JSX.Element => {
 
                         <div className={styles.item}>
                             <span />
-                            Cung cấp dịch vụ <span>xe khách</span>, <span>4 chỗ</span>, <span>7 chỗ</span>, <span>16 chỗ</span> ...
+                            Cung cấp dịch vụ xe: <span>4 chỗ</span>, <span>7 chỗ</span>, <span>16 chỗ</span> ...
                         </div>
 
                         <div className={styles.item}>

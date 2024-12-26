@@ -7,28 +7,35 @@ import styles from './styles.module.scss';
 
 // interfaces
 export interface ISelectOptionProps {
-    label: string,
-    value: string | number,
-    selected?: boolean,
+    label: string;
+    value: string | number;
+    selected?: boolean;
 }
 
 export interface ISelectProps {
-    className?: string,
-    options: ISelectOptionProps[],
-    emptySelectionLabel?: string,
-    onChange?: (option: ISelectOptionProps) => void
+    className?: string;
+    options: ISelectOptionProps[];
+    emptySelectionLabel?: string;
+    onChange?: (option: ISelectOptionProps) => void;
 }
 
 // main
-const Select = ({className, options, emptySelectionLabel, onChange}: ISelectProps): JSX.Element => {
-    const defaultSelectedOption = options.find(opt => opt.selected);
+const Select = ({
+    className,
+    options,
+    emptySelectionLabel,
+    onChange,
+}: ISelectProps): JSX.Element => {
+    const defaultSelectedOption = options.find((opt) => opt.selected);
 
-    const [selectedOption, setSelectedOption] = React.useState<ISelectOptionProps | undefined>(defaultSelectedOption);
+    const [selectedOption, setSelectedOption] = React.useState<ISelectOptionProps | undefined>(
+        defaultSelectedOption
+    );
     const [isShowOptionsDropdown, setIsShowOptionsDropdown] = React.useState<boolean>(false);
     const timeoutHandlerRef = React.useRef<ReturnType<typeof setTimeout>>();
 
     const clearTimeoutHandlerIfExisted = (): void => {
-        if(timeoutHandlerRef.current) clearTimeout(timeoutHandlerRef.current);
+        if (timeoutHandlerRef.current) clearTimeout(timeoutHandlerRef.current);
     };
 
     React.useEffect(() => {
@@ -40,17 +47,25 @@ const Select = ({className, options, emptySelectionLabel, onChange}: ISelectProp
     return (
         <div className={[styles.container, className].join(' ')}>
             <Button
-                className={[styles.trigger, isShowOptionsDropdown ? styles.expanded : ''].join(' ')}
+                className={[
+                    styles.trigger,
+                    isShowOptionsDropdown ? styles.expanded : '',
+                    !!selectedOption?.value && !!emptySelectionLabel ? styles.hasValue : '',
+                ].join(' ')}
                 onClick={(): void => {
-                    if(!isShowOptionsDropdown) setIsShowOptionsDropdown(true);
+                    if (!isShowOptionsDropdown) setIsShowOptionsDropdown(true);
                 }}
             >
-                {!selectedOption ? (emptySelectionLabel || 'Choose an option...') : selectedOption.label}
+                {!selectedOption
+                    ? emptySelectionLabel || 'Choose an option...'
+                    : selectedOption.label}
             </Button>
 
-            {
-                isShowOptionsDropdown
-                &&
+            {!!selectedOption?.value && !!emptySelectionLabel && (
+                <span className={styles.label}>{emptySelectionLabel}</span>
+            )}
+
+            {isShowOptionsDropdown && (
                 <Dropdown
                     className={styles.dropdown}
                     options={options}
@@ -59,7 +74,7 @@ const Select = ({className, options, emptySelectionLabel, onChange}: ISelectProp
                             ...option,
                             selected: true,
                         });
-                        if(onChange) onChange({...option, selected: true});
+                        if (onChange) onChange({ ...option, selected: true });
                     }}
                     onUnmounted={(): void => {
                         clearTimeoutHandlerIfExisted();
@@ -68,7 +83,7 @@ const Select = ({className, options, emptySelectionLabel, onChange}: ISelectProp
                         }, 60);
                     }}
                 />
-            }
+            )}
         </div>
     );
 };

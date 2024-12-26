@@ -1,22 +1,20 @@
-import React, { InputHTMLAttributes } from 'react';
+import React, { TextareaHTMLAttributes } from 'react';
 import styles from './styles.module.scss';
 
-export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface IInputProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
     onEnter?: () => void;
     label: string;
     containerClassName?: string;
     onTextChange?: (value: string) => void;
-    onInputFocus?: () => void;
     onInputBlur?: () => void;
-    inputRef?: React.RefObject<HTMLInputElement>;
+    inputRef?: React.RefObject<HTMLTextAreaElement>;
 }
 
-const Input = (props: IInputProps): JSX.Element => {
+const Textarea = (props: IInputProps): JSX.Element => {
     const {
         className,
         onEnter,
         onKeyUp,
-        onInputFocus,
         onInputBlur,
         containerClassName,
         onTextChange,
@@ -24,7 +22,7 @@ const Input = (props: IInputProps): JSX.Element => {
         ...ogInputProps
     } = props;
 
-    const _ref = React.useRef<HTMLInputElement>(null);
+    const _ref = React.useRef<HTMLTextAreaElement>(null);
     const inputRef = inputRefFromProps || _ref;
 
     const [isFocusing, setIsFocusing] = React.useState<boolean>(false);
@@ -32,7 +30,7 @@ const Input = (props: IInputProps): JSX.Element => {
         ogInputProps.value ? String(ogInputProps.value) : ''
     );
 
-    const handleKeyUpEvent = (e: React.KeyboardEvent<HTMLInputElement>): void => {
+    const handleKeyUpEvent = (e: React.KeyboardEvent<HTMLTextAreaElement>): void => {
         if (e.key === 'Enter' && onEnter) onEnter();
     };
 
@@ -45,17 +43,18 @@ const Input = (props: IInputProps): JSX.Element => {
             <span className={styles.label} onClick={(): void => inputRef.current?.focus()}>
                 {props.label}
             </span>
-            <input
+            <textarea
                 ref={inputRef}
                 className={className}
                 onKeyUp={handleKeyUpEvent}
+                value={value}
+                rows={3}
                 onChange={(e): void => {
                     setValue(e.target.value);
                     if (onTextChange) onTextChange(e.target.value);
                 }}
                 onFocus={(): void => {
                     setIsFocusing(true);
-                    onInputFocus?.();
                 }}
                 onBlur={(): void => {
                     setIsFocusing(false);
@@ -70,4 +69,4 @@ const Input = (props: IInputProps): JSX.Element => {
     );
 };
 
-export default Input;
+export default Textarea;

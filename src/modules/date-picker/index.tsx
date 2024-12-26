@@ -1,9 +1,9 @@
-import React from 'react';
-import moment from 'moment';
-import Picker from 'react-datepicker';
-import { registerLocale } from 'react-datepicker';
 import vi from 'date-fns/locale/vi';
+import moment from 'moment';
+import React from 'react';
+import Picker from 'react-datepicker';
 
+import { registerLocale } from 'react-datepicker';
 
 // styles
 import 'react-datepicker/dist/react-datepicker.css';
@@ -12,13 +12,26 @@ registerLocale('vi', vi);
 
 // interface
 interface IDatePickerProps {
-    title: string,
-    onChange?: (ts: number) => void,
+    title: string;
+    value?: number | string;
+    min?: number;
+    max?: number;
+    onChange?: (ts: number) => void;
+    onLoad?: (api: unknown) => void;
 }
 
 // main
-const DatePicker = ({ title, onChange }: IDatePickerProps): JSX.Element => {
-    const [value, setValue] = React.useState<number>(moment().valueOf());
+const DatePicker = ({
+    title,
+    value: valueFromProps,
+    min,
+    max,
+    onChange,
+    onLoad,
+}: IDatePickerProps): JSX.Element => {
+    const [value, setValue] = React.useState<number>(
+        valueFromProps ? moment(valueFromProps).valueOf() : moment().valueOf()
+    );
 
     const handleOnDateChange = (date: Date): void => {
         const ts = moment(date).valueOf();
@@ -28,22 +41,24 @@ const DatePicker = ({ title, onChange }: IDatePickerProps): JSX.Element => {
 
     React.useEffect(() => {
         if (onChange) onChange(value);
+        onLoad?.({
+            updateValue: (val: string | number) => setValue(moment(val).valueOf()),
+        });
     }, []);
 
     return (
         <div className={styles.container}>
-            <div className={styles.wrapper}>
-                {title}: {moment(value).format('DD/MM/YYYY')}
-            </div>
+            <span className={styles.label}>{title}</span>
+
+            <div className={styles.wrapper}>{moment(value).format('DD/MM/YYYY')}</div>
             <div className={styles.picker}>
                 <Picker
                     selected={moment(value).toDate()}
-                    minDate={moment().toDate()}
+                    minDate={min ? moment(min).toDate() : moment().toDate()}
+                    maxDate={max ? moment(max).toDate() : undefined}
                     onChange={handleOnDateChange}
                     locale="vi"
-                    customInput={
-                        <div className="react-date-picker-div" />
-                    }
+                    customInput={<div className="react-date-picker-div" />}
                 />
             </div>
         </div>

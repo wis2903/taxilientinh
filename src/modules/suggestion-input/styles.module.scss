@@ -15,18 +15,22 @@
     }
 
     .loader{
-        width: 16px;
-        height: 16px;
+        width: 100%;
         position: absolute;
-        right: 12px;
-        display: none;
+        top: calc(100% + 4px);
+        left: 0;
+        z-index: 12;
+        background: white;
+        color: #666666;
+        padding: 12px 14px;
+        border-radius: 6px;
     }
 
     .dropdown{
         position: absolute;
-        top: calc(100% + 8px);
+        top: calc(100% + 4px);
         left: 0;
         width: 100%;
-        z-index: 10;
+        z-index: 12;
     }
 }

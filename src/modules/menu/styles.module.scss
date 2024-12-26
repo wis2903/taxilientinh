@@ -1,11 +1,13 @@
 .container{
-    position: relative;
+    position: sticky;
     overflow: hidden;
+    top: 0;
     padding: 24px 0;
     margin: 10px 0 10px;
     background: linear-gradient(240deg, #2c6172, #176987);
     justify-content: center;
     display: none;
+    z-index: 100;
 
     img{
         position: absolute;

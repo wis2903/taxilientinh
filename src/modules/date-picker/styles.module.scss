@@ -8,7 +8,13 @@
     border-radius: 6px;
     position: relative;
 
-    .picker{
+    .wrapper {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .picker {
         position: absolute;
         top: 0;
         left: 0;
@@ -17,6 +23,20 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 2;
+        z-index: 12;
+    }
+
+    .label {
+        position: absolute;
+        color: #ffffff;
+        display: inline-block;
+        z-index: 1;
+        padding: 2px 4px;
+        transition: top linear 0.15s, font-size linear 0.15s;
+        background: #176987;
+        font-size: 12px;
+        top: -10px;
+        left: 10px;
+        letter-spacing: 0;
     }
 }

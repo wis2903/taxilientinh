@@ -28,10 +28,10 @@ const News = ({ containerRef }: NewsProps): JSX.Element => {
                             backgroundImage: `url(${AdsImage})`
                         }}
                     />
-                    <div className={styles.label}>Tài xế Taxilientinh tìm và trả lại khách hàng tài sản trên xe.</div>
+                    <div className={styles.label}>Tài xế Thuê xe Hoàng Huy tìm và trả lại khách hàng tài sản trên xe.</div>
                     <div className={styles.desc}>
-                        Ngày <span>18/11/2021</span>, tài xế <span>Trương Quốc Tuấn</span> của hãng xe <span>Hoàng Linh</span> tìm thấy túi xách trên xe 16 chỗ và đã liên hệ trả lại thành công cho chị <span>Trần Thanh Nga</span>, địa chỉ <span>Gò Vấp, TP HCM</span> sau chuyến đi Đà Lạt với gia đình.
-                        Hãng xe đã tuyên dương và tặng thưởng cho tài xế <span>Trương Quốc Tuấn</span>. Rất mong các tài xế của <span className={styles.name}>Taxilientinh</span> sẽ có thêm nhiều hành động đẹp trên từng chuyến đi.
+                        Ngày <span>18/11/2024</span>, tài xế <span>Trương Quốc Tuấn</span> của hãng xe <span>Hoàng Huy</span> tìm thấy túi xách trên xe 16 chỗ và đã liên hệ trả lại thành công cho chị <span>Trần Thanh Nga</span>, địa chỉ <span>Gò Vấp, TP HCM</span> sau chuyến đi Đà Lạt với gia đình.
+                        Hãng xe đã tuyên dương và tặng thưởng cho tài xế <span>Trương Quốc Tuấn</span>. Rất mong các tài xế của <span className={styles.name}>Thuê xe Hoàng Huy</span> sẽ có thêm nhiều hành động đẹp trên từng chuyến đi.
                     </div>
                 </div>
 
@@ -44,7 +44,7 @@ const News = ({ containerRef }: NewsProps): JSX.Element => {
                     />
                     <div className={styles.label}>Chương trình giảm giá Black Friday.</div>
                     <div className={styles.desc}>
-                        Không chỉ các mặt hàng tiêu dùng mới giảm giá <span>11/11</span>, <span className={styles.name}>Taxilientinh</span> cũng giảm giá các chuyến đi từ <span>11/11</span> đến hết <span>31/11/2021</span>.
+                        Không chỉ các mặt hàng tiêu dùng mới giảm giá <span>11/11</span>, <span className={styles.name}>Thuê xe Hoàng Huy</span> cũng giảm giá các chuyến đi từ <span>11/11</span> đến hết <span>31/11/2024</span>.
                     </div>
                 </div>
 
@@ -57,7 +57,7 @@ const News = ({ containerRef }: NewsProps): JSX.Element => {
                     />
                     <div className={styles.label}>Giảm giá, hỗ trợ sau đại dịch Covid-19.</div>
                     <div className={styles.desc}>
-                        <span className={styles.name}>Taxilientinh</span> giảm <span>20%</span> cho khách đặt xe đi đường dài, liên tỉnh đến hết <span>31/12/2021</span>.
+                        <span className={styles.name}>Thuê xe Hoàng Huy</span> giảm <span>20%</span> cho khách đặt xe đi đường dài, liên tỉnh đến hết <span>31/12/2021</span>.
                     </div>
                 </div>
             </Wrapper>

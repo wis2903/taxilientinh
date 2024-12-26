@@ -12,11 +12,9 @@
         width: 100%;
         text-align: left;
         height: 40px;
-        margin: 0 0 4px;
-        border: 1px solid #fff;
-        color:#222222;
+        color: #222222;
         padding: 4px 12px 0;
-        border-radius: 4px;
+        border-radius: 0px;
         font-size: 16px;
         background: #ffffff;
         border-bottom: 1px solid #1769871f;
@@ -26,9 +24,9 @@
             border-bottom: 0;
         }
 
-        &.selected{
-            background: #166987 !important;
-            color: #fff;
+        &.selected {
+            background: #e5e5e5 !important;
+            border-bottom-color: transparent;
         }
 
         &.keyboardSelected {

@@ -11,7 +11,7 @@ import styles from './styles.module.scss';
 
 // interfaces
 interface HeaderProps {
-    onClickAction?: () => void
+    onClickAction?: () => void;
 }
 
 // main
@@ -21,25 +21,17 @@ const Header = ({ onClickAction }: HeaderProps): JSX.Element => {
             <Wrapper className={styles.wrapper}>
                 <div className={styles.logo}>
                     <div className={styles.name}>
-                        <span>Taxi</span>
-                        <span>lientinh</span>
+                        <span>Thuê xe</span>
+                        <span>{' '} Hoàng Huy</span>
                     </div>
-                    <div className={styles.slogan}>
-                        Chuyên đường dài, liên tỉnh
-                    </div>
+                    <div className={styles.slogan}>Chuyên đường dài, liên tỉnh</div>
                 </div>
 
-                {
-                    isMobile
-                        ?
-                        <a href={`tel:${ENVS.phone.value}`}>
-                            Đặt xe ngay
-                        </a>
-                        :
-                        <Button onClick={onClickAction}>
-                            Đặt xe ngay
-                        </Button>
-                }
+                {isMobile ? (
+                    <a href={`tel:${ENVS.phone.value}`}>Đặt xe ngay</a>
+                ) : (
+                    <Button onClick={onClickAction}>Đặt xe ngay</Button>
+                )}
             </Wrapper>
         </div>
     );

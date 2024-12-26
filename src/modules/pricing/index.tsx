@@ -6,7 +6,7 @@ import styles from './styles.module.scss';
 
 // interfaces
 interface PricingProps {
-    containerRef?: React.RefObject<HTMLDivElement>
+    containerRef?: React.RefObject<HTMLDivElement>;
 }
 
 // main
@@ -27,9 +27,7 @@ const Pricing = ({ containerRef }: PricingProps): JSX.Element => {
                         <div className={`${styles.headCell} ${styles.rightCell}`}>7 chỗ</div>
                     </div>
                 </div>
-                <div className={`${styles.table} ${styles.tableCat}`}>
-                    Khu vực miền Đông
-                </div>
+                <div className={`${styles.table} ${styles.tableCat}`}>Khu vực miền Đông</div>
                 <div className={`${styles.table} ${styles.tableList} ${styles.tableMid}`}>
                     <div className={styles.col}>
                         <div className={styles.leftCell}>Sài Gòn - Vũng Tàu</div>
@@ -52,49 +50,47 @@ const Pricing = ({ containerRef }: PricingProps): JSX.Element => {
                         <div className={styles.leftCell}>Sài Gòn - Đà Lạt</div>
                     </div>
                     <div className={styles.col}>
-                        <div className={styles.cell}>1.100.000</div>
-                        <div className={styles.cell}>1.100.000</div>
-                        <div className={styles.cell}>1.000.000</div>
-                        <div className={styles.cell}>1.100.000</div>
-                        <div className={styles.cell}>1.100.000</div>
-                        <div className={styles.cell}>1.100.000</div>
-                        <div className={styles.cell}>1.100.000</div>
-                        <div className={styles.cell}>1.000.000</div>
-                        <div className={styles.cell}>1.000.000</div>
+                        <div className={styles.cell}>950.000</div>
+                        <div className={styles.cell}>950.000</div>
+                        <div className={styles.cell}>800.000</div>
                         <div className={styles.cell}>1.000.000</div>
                         <div className={styles.cell}>900.000</div>
-                        <div className={styles.cell}>900.000</div>
+                        <div className={styles.cell}>1.100.000</div>
+                        <div className={styles.cell}>1.100.000</div>
+                        <div className={styles.cell}>700.000</div>
+                        <div className={styles.cell}>750.000</div>
+                        <div className={styles.cell}>750.000</div>
+                        <div className={styles.cell}>600.000</div>
+                        <div className={styles.cell}>600.000</div>
+                        <div className={styles.cell}>800.000</div>
+                        <div className={styles.cell}>1.100.000</div>
+                        <div className={styles.cell}>800.000</div>
                         <div className={styles.cell}>1.000.000</div>
-                        <div className={styles.cell}>1.000.000</div>
-                        <div className={styles.cell}>850.000</div>
-                        <div className={styles.cell}>1.000.000</div>
-                        <div className={styles.cell}>2.000.000</div>
+                        <div className={styles.cell}>1.800.000</div>
                         <div className={styles.cell}>3.000.000</div>
                     </div>
                     <div className={styles.col}>
-                        <div className={styles.cell}>1.200.000</div>
-                        <div className={styles.cell}>1.200.000</div>
-                        <div className={styles.cell}>1.200.000</div>
-                        <div className={styles.cell}>1.200.000</div>
-                        <div className={styles.cell}>1.200.000</div>
-                        <div className={styles.cell}>1.200.000</div>
-                        <div className={styles.cell}>1.200.000</div>
-                        <div className={styles.cell}>1.200.000</div>
-                        <div className={styles.cell}>1.200.000</div>
-                        <div className={styles.cell}>1.200.000</div>
-                        <div className={styles.cell}>900.000</div>
+                        <div className={styles.cell}>1.150.000</div>
+                        <div className={styles.cell}>1.150.000</div>
                         <div className={styles.cell}>900.000</div>
                         <div className={styles.cell}>1.200.000</div>
-                        <div className={styles.cell}>1.200.000</div>
+                        <div className={styles.cell}>1.100.000</div>
+                        <div className={styles.cell}>1.300.000</div>
+                        <div className={styles.cell}>1.300.000</div>
+                        <div className={styles.cell}>900.000</div>
+                        <div className={styles.cell}>950.000</div>
+                        <div className={styles.cell}>950.000</div>
+                        <div className={styles.cell}>800.000</div>
+                        <div className={styles.cell}>800.000</div>
+                        <div className={styles.cell}>1.000.000</div>
+                        <div className={styles.cell}>1.300.000</div>
                         <div className={styles.cell}>1.000.000</div>
                         <div className={styles.cell}>1.200.000</div>
-                        <div className={styles.cell}>2.200.000</div>
-                        <div className={styles.cell}>3.300.000</div>
+                        <div className={styles.cell}>2.000.000</div>
+                        <div className={styles.cell}>3.200.000</div>
                     </div>
                 </div>
-                <div className={`${styles.table} ${styles.tableCat}`}>
-                    Khu vực miền Tây
-                </div>
+                <div className={`${styles.table} ${styles.tableCat}`}>Khu vực miền Tây</div>
                 <div className={`${styles.table} ${styles.tableList}`}>
                     <div className={styles.col}>
                         <div className={styles.leftCell}>Sài Gòn - Mỹ Tho</div>
@@ -115,40 +111,40 @@ const Pricing = ({ containerRef }: PricingProps): JSX.Element => {
                         <div className={styles.leftCell}>Sài Gòn - Cà Mau</div>
                     </div>
                     <div className={styles.col}>
-                        <div className={styles.cell}>900.000</div>
-                        <div className={styles.cell}>1.100.000</div>
-                        <div className={styles.cell}>1.200.000</div>
-                        <div className={styles.cell}>900.000</div>
-                        <div className={styles.cell}>700.000</div>
+                        <div className={styles.cell}>800.000</div>
                         <div className={styles.cell}>1.000.000</div>
-                        <div className={styles.cell}>1.500.000</div>
-                        <div className={styles.cell}>1.500.000</div>
+                        <div className={styles.cell}>1.200.000</div>
+                        <div className={styles.cell}>800.000</div>
+                        <div className={styles.cell}>600.000</div>
+                        <div className={styles.cell}>1.000.000</div>
+                        <div className={styles.cell}>1.400.000</div>
+                        <div className={styles.cell}>1.400.000</div>
+                        <div className={styles.cell}>1.600.000</div>
                         <div className={styles.cell}>1.700.000</div>
-                        <div className={styles.cell}>1.700.000</div>
-                        <div className={styles.cell}>2.200.000</div>
+                        <div className={styles.cell}>2.000.000</div>
                         <div className={styles.cell}>2.000.000</div>
                         <div className={styles.cell}>2.500.000</div>
+                        <div className={styles.cell}>2.400.000</div>
                         <div className={styles.cell}>2.500.000</div>
                         <div className={styles.cell}>3.000.000</div>
-                        <div className={styles.cell}>3.400.000</div>
                     </div>
                     <div className={styles.col}>
                         <div className={styles.cell}>1.000.000</div>
                         <div className={styles.cell}>1.200.000</div>
                         <div className={styles.cell}>1.400.000</div>
-                        <div className={styles.cell}>1.150.000</div>
-                        <div className={styles.cell}>900.000</div>
+                        <div className={styles.cell}>1.000.000</div>
+                        <div className={styles.cell}>800.000</div>
                         <div className={styles.cell}>1.200.000</div>
-                        <div className={styles.cell}>1.700.000</div>
-                        <div className={styles.cell}>1.700.000</div>
+                        <div className={styles.cell}>1.600.000</div>
+                        <div className={styles.cell}>1.600.000</div>
+                        <div className={styles.cell}>1.800.000</div>
                         <div className={styles.cell}>1.900.000</div>
-                        <div className={styles.cell}>1.900.000</div>
-                        <div className={styles.cell}>2.500.000</div>
-                        <div className={styles.cell}>2.300.000</div>
+                        <div className={styles.cell}>2.200.000</div>
+                        <div className={styles.cell}>2.200.000</div>
                         <div className={styles.cell}>2.700.000</div>
+                        <div className={styles.cell}>2.600.000</div>
                         <div className={styles.cell}>2.700.000</div>
                         <div className={styles.cell}>3.200.000</div>
-                        <div className={styles.cell}>3.600.000</div>
                     </div>
                 </div>
             </Wrapper>

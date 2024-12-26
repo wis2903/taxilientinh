@@ -1,5 +1,8 @@
 import React from 'react';
 import Wrapper from '../wrapper';
+import ENVS from '../../envs';
+
+import { isMobile } from 'react-device-detect';
 
 // resources
 import TanSonNhatImage from '../../resources/images/tansonnhat.jpeg';
@@ -11,10 +14,10 @@ import CaMauImage from '../../resources/images/camau.jpeg';
 
 // styles
 import styles from './styles.module.scss';
-import ENVS from '../../envs';
+import Button from '../button';
 
 interface IToursProps {
-    onClickBooking: () => void,
+    onClickBooking: () => void;
 }
 
 // main
@@ -26,50 +29,92 @@ const Tours = ({ onClickBooking }: IToursProps): JSX.Element => {
 
                 <div className={styles.items}>
                     <div className={styles.item}>
-                        <div className={styles.image} style={{ backgroundImage: `url(${TanSonNhatImage})` }} />
+                        <div
+                            className={styles.image}
+                            style={{ backgroundImage: `url(${TanSonNhatImage})` }}
+                        />
                         <div className={styles.label}>Sân bay Tân Sơn Nhất</div>
                         <div className={styles.action}>
-                            <a href={`tel:${ENVS.phone.value}`}>Đặt xe đi ngay</a>
+                            {isMobile ? (
+                                <a href={`tel:${ENVS.phone.value}`}>Đặt xe đi ngay</a>
+                            ) : (
+                                <Button onClick={onClickBooking}>Đặt xe đi ngay</Button>
+                            )}
                         </div>
                     </div>
 
                     <div className={styles.item}>
-                        <div className={styles.image} style={{ backgroundImage: `url(${BinhDuongImage})` }} />
+                        <div
+                            className={styles.image}
+                            style={{ backgroundImage: `url(${BinhDuongImage})` }}
+                        />
                         <div className={styles.label}>Xe đi Bình Dương 24/7</div>
                         <div className={styles.action}>
-                            <a href={`tel:${ENVS.phone.value}`}>Đặt xe đi ngay</a>
+                        {isMobile ? (
+                                <a href={`tel:${ENVS.phone.value}`}>Đặt xe đi ngay</a>
+                            ) : (
+                                <Button onClick={onClickBooking}>Đặt xe đi ngay</Button>
+                            )}
                         </div>
                     </div>
 
                     <div className={styles.item}>
-                        <div className={styles.image} style={{ backgroundImage: `url(${VungTauImage})` }} />
+                        <div
+                            className={styles.image}
+                            style={{ backgroundImage: `url(${VungTauImage})` }}
+                        />
                         <div className={styles.label}>Đi Vũng Tàu (đang ưu đãi về giá)</div>
                         <div className={styles.action}>
-                            <a href={`tel:${ENVS.phone.value}`}>Đặt xe đi ngay</a>
+                        {isMobile ? (
+                                <a href={`tel:${ENVS.phone.value}`}>Đặt xe đi ngay</a>
+                            ) : (
+                                <Button onClick={onClickBooking}>Đặt xe đi ngay</Button>
+                            )}
                         </div>
                     </div>
 
                     <div className={styles.item}>
-                        <div className={styles.image} style={{ backgroundImage: `url(${DongNaiImage})` }} />
+                        <div
+                            className={styles.image}
+                            style={{ backgroundImage: `url(${DongNaiImage})` }}
+                        />
                         <div className={styles.label}>Xe đi Đồng Nai</div>
                         <div className={styles.action}>
-                            <a href={`tel:${ENVS.phone.value}`}>Đặt xe đi ngay</a>
+                        {isMobile ? (
+                                <a href={`tel:${ENVS.phone.value}`}>Đặt xe đi ngay</a>
+                            ) : (
+                                <Button onClick={onClickBooking}>Đặt xe đi ngay</Button>
+                            )}
                         </div>
                     </div>
 
                     <div className={styles.item}>
-                        <div className={styles.image} style={{ backgroundImage: `url(${DaLatImage})` }} />
+                        <div
+                            className={styles.image}
+                            style={{ backgroundImage: `url(${DaLatImage})` }}
+                        />
                         <div className={styles.label}>Du lịch Đà Lạt (hỗ trợ khứ hồi)</div>
                         <div className={styles.action}>
-                            <a href={`tel:${ENVS.phone.value}`}>Đặt xe đi ngay</a>
+                        {isMobile ? (
+                                <a href={`tel:${ENVS.phone.value}`}>Đặt xe đi ngay</a>
+                            ) : (
+                                <Button onClick={onClickBooking}>Đặt xe đi ngay</Button>
+                            )}
                         </div>
                     </div>
 
                     <div className={styles.item}>
-                        <div className={styles.image} style={{ backgroundImage: `url(${CaMauImage})` }} />
+                        <div
+                            className={styles.image}
+                            style={{ backgroundImage: `url(${CaMauImage})` }}
+                        />
                         <div className={styles.label}>Xe đi Cà Mau</div>
                         <div className={styles.action}>
-                            <a href={`tel:${ENVS.phone.value}`}>Đặt xe đi ngay</a>
+                        {isMobile ? (
+                                <a href={`tel:${ENVS.phone.value}`}>Đặt xe đi ngay</a>
+                            ) : (
+                                <Button onClick={onClickBooking}>Đặt xe đi ngay</Button>
+                            )}
                         </div>
                     </div>
                 </div>

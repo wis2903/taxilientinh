@@ -6,8 +6,8 @@ import Select, { ISelectOptionProps } from '../select';
 import styles from './styles.module.scss';
 
 interface IProps {
-    title: string,
-    onChange?: (value: string) => void
+    title: string;
+    onChange?: (value: string) => void;
 }
 
 // main
@@ -16,10 +16,10 @@ const TimePicker = ({ title, onChange }: IProps): JSX.Element => {
         const hOptions = [];
         for (let i = 0; i < 24; i++) {
             const val = `${i < 10 ? '0' + i : i}`;
-            hOptions.push(({
+            hOptions.push({
                 label: `${val} giờ`,
                 value: `${val}`,
-            }));
+            });
         }
 
         return hOptions;
@@ -29,10 +29,10 @@ const TimePicker = ({ title, onChange }: IProps): JSX.Element => {
         const mOptions = [];
         for (let i = 0; i < 60; i++) {
             const val = `${i < 10 ? '0' + i : i}`;
-            mOptions.push(({
+            mOptions.push({
                 label: `${val} phút`,
                 value: `${val}`,
-            }));
+            });
         }
         return mOptions;
     };
@@ -44,17 +44,26 @@ const TimePicker = ({ title, onChange }: IProps): JSX.Element => {
 
     return (
         <div className={styles.container}>
-            {title}:
+            <span className={styles.label}>{title}</span>
+
             <div className={styles.selection}>
-                <Select className={styles.dropdown} options={hOptions.map(item => ({ ...item, selected: item.value === h }))} onChange={(opt): void => {
-                    setH(String(opt.value));
-                    if (onChange) onChange(`${String(opt.value)}:${m}`);
-                }} />
+                <Select
+                    className={styles.dropdown}
+                    options={hOptions.map((item) => ({ ...item, selected: item.value === h }))}
+                    onChange={(opt): void => {
+                        setH(String(opt.value));
+                        if (onChange) onChange(`${String(opt.value)}:${m}`);
+                    }}
+                />
                 <span>:</span>
-                <Select className={styles.dropdown} options={mOptions.map(item => ({ ...item, selected: item.value === m }))} onChange={(opt): void => {
-                    setM(String(opt.value));
-                    if (onChange) onChange(`${h}:${String(opt.value)}`);
-                }} />
+                <Select
+                    className={styles.dropdown}
+                    options={mOptions.map((item) => ({ ...item, selected: item.value === m }))}
+                    onChange={(opt): void => {
+                        setM(String(opt.value));
+                        if (onChange) onChange(`${h}:${String(opt.value)}`);
+                    }}
+                />
             </div>
         </div>
     );

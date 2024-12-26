@@ -22,7 +22,7 @@ const Call = (): JSX.Element => {
                     Nhắn tin
                 </a>
             }
-            <a className={styles.zaloContainer} target="_blank" href="https://zalo.me/0932193765" rel="noreferrer">
+            <a className={styles.zaloContainer} target="_blank" href="https://zalo.me/0989265867" rel="noreferrer">
                 <img src={ChatIcon} alt="Chat" />
                 Chat Zalo
             </a>

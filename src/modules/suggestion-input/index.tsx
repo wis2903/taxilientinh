@@ -4,31 +4,37 @@ import React from 'react';
 import styles from './styles.module.scss';
 
 // components
-import Input from '../input';
-import Loader from '../loader';
 import Dropdown from '../dropdown';
+import Input from '../input';
 
 // interfaces
 interface ISuggestionInputProps {
-    className?: string,
-    label: string,
-    getPredictionFunc?: (input: string) => Promise<{ label: string, value: string }[]>,
-    onChanged?: (value: string) => void,
-    defaultValue?: string,
+    className?: string;
+    label: string;
+    getPredictionFunc?: (input: string) => Promise<{ label: string; value: string }[]>;
+    onChanged?: (value: string) => void;
+    defaultValue?: string;
 }
 
 interface ISuggestionState {
-    loading?: boolean,
-    data: { label: string, value: string }[],
+    loading?: boolean;
+    data: { label: string; value: string }[];
 }
 
-const SuggestionInput = ({ className, label, getPredictionFunc, onChanged, defaultValue }: ISuggestionInputProps): JSX.Element => {
+const SuggestionInput = ({
+    className,
+    label,
+    getPredictionFunc,
+    onChanged,
+    defaultValue,
+}: ISuggestionInputProps): JSX.Element => {
     const [typingValue, setTypingValue] = React.useState<string>(defaultValue || '');
     const [suggestion, setSuggetion] = React.useState<ISuggestionState>({
         loading: false,
         data: [],
     });
 
+    const isFocusingRef = React.useRef<boolean>(false);
     const timeoutHandlerRef = React.useRef<ReturnType<typeof setTimeout> | null>();
 
     const clearTimeoutHandlerIfExisted = (): void => {
@@ -39,6 +45,15 @@ const SuggestionInput = ({ className, label, getPredictionFunc, onChanged, defau
         clearTimeoutHandlerIfExisted();
         setTypingValue(text);
         if (onChanged) onChanged(text);
+
+        if (!text) {
+            setSuggetion({
+                ...suggestion,
+                loading: false,
+            });
+            return;
+        }
+
         setSuggetion({
             ...suggestion,
             loading: true,
@@ -46,12 +61,14 @@ const SuggestionInput = ({ className, label, getPredictionFunc, onChanged, defau
         timeoutHandlerRef.current = setTimeout(async () => {
             if (getPredictionFunc) {
                 const predictions = await getPredictionFunc(text);
-                setSuggetion({
-                    loading: false,
-                    data: predictions,
-                });
+                if (isFocusingRef.current) {
+                    setSuggetion({
+                        loading: false,
+                        data: predictions,
+                    });
+                }
             }
-        }, 1000);
+        }, 600);
     };
 
     const resetSuggestionState = (): void => {
@@ -74,15 +91,21 @@ const SuggestionInput = ({ className, label, getPredictionFunc, onChanged, defau
                 label={label}
                 value={typingValue}
                 onTextChange={handleInputValueChanged}
-                onInputBlur={clearTimeoutHandlerIfExisted}
+                onInputFocus={(): void => {
+                    isFocusingRef.current = true;
+                }}
+                onInputBlur={(): void => {
+                    isFocusingRef.current = false;
+                    clearTimeoutHandlerIfExisted();
+                    if (suggestion.loading) {
+                        resetSuggestionState();
+                    }
+                }}
             />
-            {
-                suggestion.loading
-                && <Loader className={styles.loader} />
-            }
-            {
-                !!suggestion.data.length
-                && (
+            {suggestion.loading ? (
+                <div className={styles.loader}>Đang tìm kiếm địa chỉ...</div>
+            ) : (
+                !!suggestion.data.length && (
                     <Dropdown
                         className={styles.dropdown}
                         options={suggestion.data}
@@ -97,7 +120,7 @@ const SuggestionInput = ({ className, label, getPredictionFunc, onChanged, defau
                         onUnmounted={resetSuggestionState}
                     />
                 )
-            }
+            )}
         </div>
     );
 };

@@ -1,39 +1,70 @@
 .container {
-    border: 1px solid #fff;
     background: transparent;
     color: #fff;
-    width: 100%;
+    border: 1px solid #ffffff;
+    width: 182px;
+    min-width: 182px;
     font-size: 16px;
-    padding: 14px 12px 8px;
     border-radius: 6px;
     position: relative;
+    height: 44px;
 
     .selection {
         position: absolute;
-        bottom: 4px;
-        left: 70px;
-        width: 210px;
+        bottom: 0;
+        left: 0;
+        width: 190px;
         display: flex;
         align-items: center;
         justify-content: flex-start;
         z-index: 10;
 
         .dropdown {
-            width: 110px;
-            min-width: 0;
-
-            &:first-child{
-                width: 100px;
-            }
+            width: 94px;
+            min-width: 94px;
 
             > button {
-                height: 30px;
-                border-color: rgba($color: #ffffff, $alpha: 0.4);
+                height: 38px;
+                border-color: transparent;
+                background-color: transparent;
+                padding: 0 8px 0 2px;
+
+                &::after {
+                    right: 15px;
+                }
+            }
+
+            &:first-child {
+                width: 76px;
+                min-width: 76px;
+                left: -1px;
+
+                > button {
+                    padding: 0 0px 0 10px;
+
+                    &::after {
+                        right: 2px;
+                    }
+                }
             }
         }
 
-        > span{
+        > span {
             margin: 0 4px;
         }
+    }
+
+    .label {
+        position: absolute;
+        color: #ffffff;
+        display: inline-block;
+        z-index: 1;
+        padding: 2px 4px;
+        transition: top linear 0.15s, font-size linear 0.15s;
+        background: #176987;
+        font-size: 12px;
+        top: -10px;
+        left: 10px;
+        letter-spacing: 0;
     }
 }
